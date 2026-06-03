@@ -1,6 +1,7 @@
 package com.carol.chat_pubsub.broker;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.carol.chat_pubsub.model.Topico;
@@ -22,4 +23,9 @@ public class Broker {
             topicos.remove(nome);
         }
     }
+
+    public Set<String> listarTopicos() {
+        return topicos.keySet();
+    }
+
 }

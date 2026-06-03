@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chat</title>
+</head>
+<body>
+    <h1>Topico: <span th:text="${topico}">Topico</span></h1>
+    <hr>
+    <div th:each="msg : ${mensagens}">
+        <b th:text="${msg.remetente}">:</b>
+        <span th:text="${msg.conteudo}"></span>
+    </div>
+    <hr>
+    <form th:action="@{/enviarMensagem}" method="post">
+        <input type="hidden" name="topico" th:value="${topico}">
+        <input type="text" name="mensagem" placeholder="Digite sua mensagem">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

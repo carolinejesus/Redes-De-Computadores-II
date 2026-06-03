@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Topicos</title>
+</head>
+
+<body>
+    <h1>Bem vindo, <span th:text="${nome}"></span>!</h1>
+    <h2>Criar Tópico</h2>
+    <h2>Topicos disponíveis:</h2>
+    <form th:action="@{/criarTopico}" method="post">
+        <input type="text" name="nomeTopico" placeholder="Digite o nome do tópico">
+        <button type="submit">
+            Criar            
+        </button>
+    </form>
+
+    <hr>
+
+    <h2> Tópicos Disponíveis</h2>
+    <ul>
+        <li th:each="topico : ${topicos}">
+
+            <span th:text="${topico}"></span>
+
+            <form th:action="@{/chat}" method="get" style="display:inline;">
+                <input type="hidden" name="topico" th:value="${topico}">
+                <button type="submit">Entrar</button>
+            </form>
+        </li>
+    </ul>
+</body>
+</html>
